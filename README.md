@@ -5,7 +5,7 @@ Project for CS496 Advanced Deep Learning class (Northwestern University 2021 Win
 Implementation of the approach described by Sim et al. 2019 (https://www.hindawi.com/journals/complexity/2019/4324878/#data-availability).
 
 ## Approach
-Time series data were converted to image data by selecting 30 minute windows. Technical indicators related to stock price predictions were calculated from the stock price per minute data and plotted on the the same image.
+Time series data were converted to image data (64x64x3) by selecting 30 minute windows. Technical indicators related to stock price predictions were calculated from the stock price per minute data and plotted on the the same image.
 
 ![alt text](https://raw.githubusercontent.com/karinazad/TimeSeriesConvNet/main/approach.png)
 
@@ -44,3 +44,7 @@ To train and evaluate the model (CNN, ANN, or SVM) on the generated images, run 
     experiments.py --model CNN --show_example True
     
     
+## Example
+
+Note that the image is blurry since it's size is 64x64.
+![alt text](https://github.com/karinazad/TimeSeriesConvNet/blob/main/results/predictions/CNN-100epochs.svg)
