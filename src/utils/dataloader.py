@@ -4,10 +4,10 @@ import numpy as np
 
 SAVE_PATH = '../data/img/'
 
-
 def load_images(path=SAVE_PATH,
-                nsamples = 5,
+                nsamples=None,
                 size=(64, 64)):
+
     files = os.listdir(path)
     if nsamples is None:
         nsamples = len(files)

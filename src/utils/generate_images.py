@@ -2,10 +2,12 @@ import argparse
 import os
 from typing import Optional
 
+import numpy as np
+
 from src.utils.datahandler import TimeSeriesHandler
 
-DATA_PATH = '../data/data_stocks.csv'
-SAVE_PATH = '../data/img'
+DATA_PATH = '../../data/data_stocks.csv'
+SAVE_PATH = '../../data'
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -31,6 +33,8 @@ if __name__ == "__main__":
         type=Optional[int],
         default=None,
     )
+
+
     args = parser.parse_args()
 
     save_dir = args.save_path
@@ -41,7 +45,5 @@ if __name__ == "__main__":
     handler = TimeSeriesHandler(path=args.data_path,
                                 nsamples=args.samples)
 
-    handler.generate_images(save_dir=args.save_path)
-
-    if args.plot_preview:
-        handler.plot_preview()
+    targets = handler.generate_images(save_dir=os.path.join(args.save_path, "img"))
+    np.save(os.path.join(args.save_path, "targets/targets.npy"), targets)

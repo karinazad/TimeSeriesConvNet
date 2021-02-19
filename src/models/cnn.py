@@ -4,8 +4,12 @@ import os
 import numpy as np
 import keras
 from keras import layers
+import tensorflow as tf
+import matplotlib.pyplot as plt
 
 from keras.optimizers import SGD
+
+tf.logging.set_verbosity(tf.logging.ERROR)
 
 
 class CNN:
@@ -21,19 +25,41 @@ class CNN:
         self.model.add(layers.Dense(units=512, activation='relu'))
         self.model.add(layers.Dense(units=1, activation='sigmoid'))
 
+        self.history = None
+
     def train(self,
               X: np.ndarray,
               y: np.ndarray,
-              epochs: int = 100,
-              ):
-        self.model.compile(optimizer=SGD(), loss='mse', metrics=['accuracy'],)
+              epochs=2500,
+              steps_per_epoch=200,
+              **kwargs):
 
-        return self.model.fit(X, y, epochs=epochs)
+        self.model.compile(optimizer=SGD(),
+                           loss='mse',
+                           metrics=['accuracy'], )
 
+        self.history = self.model.fit(X,
+                                      y,
+                                      epochs=epochs,
+                                      steps_per_epoch=steps_per_epoch,
+                                      **kwargs)
     def evaluate(self,
                  X: np.ndarray,
-                 y: np.ndarray,):
+                 y: np.ndarray,
+                 **kwargs):
+        return self.model.evaluate(X, y, **kwargs)
 
-        return self.model.evaluate(X,y)
+    def plot_history(self):
+        fig, axes = plt.subplots(1, 2, figsize=(8, 4))
+        axes[0].plot(self.history.history['loss']) #, color='blue', label='train')
+        # axes[0].plot(self.history.history['val_loss'], color='red', label='validation')
+        axes[0].set_title("Loss")
+        # axes[0].legend()
 
+        axes[1].plot(self.history.history['accuracy'])#, color = 'blue', label='train')
+        # axes[1].plot(self.history.history['val_accuracy'], color='red', label='validation')
+        axes[1].set_title("Accuracy")
+        # axes[1].legend()
 
+        plt.suptitle(f"CNN history")
+        plt.show()
