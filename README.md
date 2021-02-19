@@ -41,7 +41,7 @@ This script will also save targets (price up or down) for each image in a separa
 
 To train and evaluate the model (CNN, ANN, or SVM) on the generated images, run the following script from the src/experiments folder:
 
-    experiments.py --model CNN --show_example True
+    experiments.py --model CNN --show-example True
     
     
 ## Example
