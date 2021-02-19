@@ -4,6 +4,10 @@ Project for CS496 Advanced Deep Learning class (Northwestern University 2021 Win
 
 Implementation of the approach described by Sim et al. 2019 (https://www.hindawi.com/journals/complexity/2019/4324878/#data-availability).
 
+## Approach
+Time series data were converted to image data by selecting 30 minute windows. Technical indicators related to stock price predictions were calculated from the stock price per minute data and plotted on the the same image.
+
+![alt text](https://raw.githubusercontent.com/karinazad/TimeSeriesConvNet/main/approach.png)
 
 ## Dataset
 
