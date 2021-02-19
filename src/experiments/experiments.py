@@ -4,13 +4,12 @@ from typing import Optional
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.metrics import confusion_matrix
 
 from src.models.ann import ANN
 from src.models.cnn import CNN
 from src.models.svm import SVM
 from src.utils.dataloader import load_images
-from src.utils.run_utils import tensorflow_verbosity
 
 IMAGE_PATH = '../data/img'
 TARGET_PATH = '../data/targets/targets.npy'
@@ -18,7 +17,6 @@ RESULTS_PATH = '../../results'
 SAVED_WEIGHTS = '../weights'
 
 if __name__ == "__main__":
-    tensorflow_verbosity()
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--model",
