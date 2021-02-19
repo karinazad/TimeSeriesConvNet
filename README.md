@@ -2,6 +2,9 @@
 Convolutional neural network for analysis of time series converted to images. Applied for stock price predictions. 
 Project for CS496 Advanced Deep Learning class (Northwestern University 2021 Winter).
 
+Implementation of the approach described by Sim et al. 2019 (https://www.hindawi.com/journals/complexity/2019/4324878/#data-availability).
+
+
 ## Dataset
 
 Dataset of S&P 500 minute prices can be found at https://www.kesci.com/home/dataset/5bbdc2513631bc00109c29a4/files. 
