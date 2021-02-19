@@ -30,7 +30,7 @@ To generate images from the raw data run the following script from the src folde
     
 This script will also save targets (price up or down) for each image in a separate folder.   
     
-#### : Run the experiment
+#### Run the model
 
 To train and evaluate the model (CNN, ANN, or SVM) on the generated images, run the following script from the src/experiments folder:
 
