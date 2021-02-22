@@ -33,7 +33,7 @@ The necessary packages can be installed using:
 
 To generate images from the raw data run the following script from the src folder. You can specify the datapath where your data is stored and the number of samples to generate.
 
-    generate_images.py --data-path ../../data/data_stocks.csv --samples 1100
+    generate_images.py --samples 1100
     
 This script will also save targets (price up or down) for each image in a separate folder.   
     
@@ -41,7 +41,7 @@ This script will also save targets (price up or down) for each image in a separa
 
 To train and evaluate the model (CNN, ANN, or SVM) on the generated images, run the following script from the src/experiments folder:
 
-    experiments.py --model CNN --show_example True
+    experiments.py --model CNN --show-example True
     
     
 ## Example
