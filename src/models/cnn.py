@@ -9,8 +9,6 @@ import matplotlib.pyplot as plt
 
 from keras.optimizers import SGD
 
-tf.logging.set_verbosity(tf.logging.ERROR)
-
 
 class CNN:
     def __init__(self):
@@ -38,8 +36,7 @@ class CNN:
                            loss='mse',
                            metrics=['accuracy'], )
 
-        self.history = self.model.fit(X,
-                                      y,
+        self.history = self.model.fit(X,y,
                                       epochs=epochs,
                                       steps_per_epoch=steps_per_epoch,
                                       **kwargs)
@@ -51,13 +48,11 @@ class CNN:
 
     def plot_history(self):
         fig, axes = plt.subplots(1, 2, figsize=(8, 4))
-        axes[0].plot(self.history.history['loss']) #, color='blue', label='train')
-        # axes[0].plot(self.history.history['val_loss'], color='red', label='validation')
+        axes[0].plot(self.history.history['loss'])
         axes[0].set_title("Loss")
         # axes[0].legend()
 
-        axes[1].plot(self.history.history['accuracy'])#, color = 'blue', label='train')
-        # axes[1].plot(self.history.history['val_accuracy'], color='red', label='validation')
+        axes[1].plot(self.history.history['accuracy'])
         axes[1].set_title("Accuracy")
         # axes[1].legend()
 

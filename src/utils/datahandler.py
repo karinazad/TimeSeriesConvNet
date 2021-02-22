@@ -1,18 +1,16 @@
-from collections import defaultdict
-from typing import List, Optional, Dict, Tuple
 import os
-import warnings
+from collections import defaultdict
+from typing import List, Optional
 
-from tqdm import tqdm
-import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.preprocessing import MinMaxScaler
+import numpy as np
+import pandas as pd
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import MinMaxScaler
+from tqdm import tqdm
 
-from src.utils.technical_indicators import TECHNICAL_INDICATORS, INDICATOR_FUNCTIONS
-
+from src.utils.technical_indicators import INDICATOR_FUNCTIONS
 
 DATA_PATH = '../data/data_stocks.csv'
 SAVE_PATH = '../data/img/'
