@@ -4,6 +4,9 @@ Project for CS496 Advanced Deep Learning class (Northwestern University 2021 Win
 
 This project is an implementation of the approach described by Sim et al. 2019 (https://www.hindawi.com/journals/complexity/2019/4324878/#data-availability). The authors use convolutional neural networks to predict stock market prices.
 
+## Table of contents
+[1. Problem description](#problem-description)
+
 ## Problem description
 Stock market prediction is a very complex task. The price of a stock is influenced by many factors starting from the actual fundamental underlying characteristics of a company to stock market volatility or even news reports. 
 
@@ -53,25 +56,26 @@ The necessary packages can be installed by running the following command in the 
 
     pip install -r requirements.txt
     
-To add the path of the scripts: 
 
-    export PYTHONPATH="${PYTHONPATH}:<absolute path to the folder>"
-    
 #### Image generation
 
 After downloading the dataset from  https://www.kesci.com/home/dataset/5bbdc2513631bc00109c29a4/files, upload it to the project folder. 
 To generate images from the raw data run the following script from the src folder. You can specify the datapath where your data is stored and the number of samples to generate.
 
-    src/main/generate_images.py --samples 1100 --data-path <path_to_your_dataset>
+    generate_images.py --samples 1100 --data-path <path_to_your_dataset>
     
-This script will also save targets (price going up or down) for each image in a separate folder (default is data/images and data/targets). 
+This script will also save targets (price going up or down) for each image in a separate folder (default is ../../data/images and ../../data/targets). 
+
+To run the script from the root folder:
+
+    export PYTHONPATH="${PYTHONPATH} 
     
 #### Run the model
 
 To train and evaluate the model (CNN, ANN, or SVM) on the generated images, run the following script from the src/experiments folder:
 Note: right now, only CNN is supported.
 
-    src/main/experiments.py --model CNN --show-example True
+    experiments.py --model CNN --show-example True
     
     
 ## Example
