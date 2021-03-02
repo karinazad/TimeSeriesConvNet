@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c727c49-284f-4015-840e-321a16a11d8f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TimeSeriesConvNet.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TimeSeriesConvNet.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/history/CNN-100epoch.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/experiments/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/experiments/experiments.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/experiments.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/ann.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/ann.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/cnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/cnn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/svm.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/svm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/datahandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/datahandler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/dataloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/dataloader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/generate_images.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/generate_images.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,14 +61,14 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/experiments" />
       <recent name="$PROJECT_DIR$/results" />
       <recent name="$PROJECT_DIR$/src/utils" />
-      <recent name="$PROJECT_DIR$/src/experiments" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="experiments" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.experiments">
+    <configuration name="experiments" type="PythonConfigurationType" factoryName="Python">
       <module name="TimeSeriesConvNet" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -65,12 +76,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="/opt/anaconda3/envs/tf2env/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/utils" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/experiments/experiments.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main/experiments.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -79,6 +90,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="generate_images" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="TimeSeriesConvNet" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/opt/anaconda3/envs/tf2env/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/utils" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main/generate_images.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.generate_images" />
+      <item itemvalue="Python.experiments" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -91,6 +128,12 @@
       <workItem from="1613502086153" duration="183000" />
       <workItem from="1613685091692" duration="470000" />
       <workItem from="1613756163841" duration="9968000" />
+      <workItem from="1614012904017" duration="587000" />
+      <workItem from="1614069820924" duration="61000" />
+      <workItem from="1614194337361" duration="2524000" />
+      <workItem from="1614246098648" duration="13000" />
+      <workItem from="1614674115181" duration="248000" />
+      <workItem from="1614674440093" duration="618000" />
     </task>
     <servers />
   </component>
@@ -99,6 +142,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TimeSeriesConvNet$TimeSeriesConvNet.coverage" NAME="experiments Coverage Results" MODIFIED="1613685479863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.." />
-    <SUITE FILE_PATH="coverage/TimeSeriesConvNet$generate_images.coverage" NAME="experiments Coverage Results" MODIFIED="1613768126088" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/TimeSeriesConvNet$generate_images.coverage" NAME="generate_images Coverage Results" MODIFIED="1614194627052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/utils" />
+    <SUITE FILE_PATH="coverage/TimeSeriesConvNet$experiments.coverage" NAME="experiments Coverage Results" MODIFIED="1614196596680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/utils" />
   </component>
 </project>

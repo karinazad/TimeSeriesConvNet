@@ -2,7 +2,7 @@ import os
 from PIL import Image
 import numpy as np
 
-SAVE_PATH = '../data/img/'
+SAVE_PATH = 'data/img/'
 
 def load_images(path=SAVE_PATH,
                 nsamples=None,

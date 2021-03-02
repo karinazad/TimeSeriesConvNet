@@ -11,10 +11,10 @@ from src.models.cnn import CNN
 from src.models.svm import SVM
 from src.utils.dataloader import load_images
 
-IMAGE_PATH = '../data/img'
-TARGET_PATH = '../data/targets/targets.npy'
-RESULTS_PATH = '../../results'
-SAVED_WEIGHTS = '../weights'
+IMAGE_PATH = 'data/images'
+TARGET_PATH = 'data/targets/targets.npy'
+RESULTS_PATH = 'results'
+SAVED_WEIGHTS = 'weights'
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

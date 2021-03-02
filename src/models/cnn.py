@@ -2,12 +2,12 @@ import sys
 import os
 
 import numpy as np
-import keras
-from keras import layers
+import tensorflow.keras as keras
+from tensorflow.keras import layers
 import tensorflow as tf
 import matplotlib.pyplot as plt
 
-from keras.optimizers import SGD
+from tensorflow.keras.optimizers import SGD
 
 
 class CNN:

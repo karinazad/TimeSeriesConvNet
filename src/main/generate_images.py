@@ -6,8 +6,8 @@ import numpy as np
 
 from src.utils.datahandler import TimeSeriesHandler
 
-DATA_PATH = '../../data/data_stocks.csv'
-SAVE_PATH = '../../data'
+DATA_PATH = 'data/data_stocks.csv'
+SAVE_PATH = 'data'
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -22,7 +22,6 @@ if __name__ == "__main__":
         type=str,
         default=SAVE_PATH,
     )
-
     parser.add_argument(
         "--samples",
         type=Optional[int],
@@ -30,10 +29,9 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--plot-preview",
-        type=Optional[int],
-        default=None,
+        type=Optional[bool],
+        default=False,
     )
-
 
     args = parser.parse_args()
 
@@ -45,5 +43,5 @@ if __name__ == "__main__":
     handler = TimeSeriesHandler(path=args.data_path,
                                 nsamples=args.samples)
 
-    targets = handler.generate_images(save_dir=os.path.join(args.save_path, "img"))
+    targets = handler.generate_images(save_dir=os.path.join(args.save_path, "images"))
     np.save(os.path.join(args.save_path, "targets/targets.npy"), targets)

@@ -12,8 +12,8 @@ from tqdm import tqdm
 
 from src.utils.technical_indicators import INDICATOR_FUNCTIONS
 
-DATA_PATH = '../data/data_stocks.csv'
-SAVE_PATH = '../data/img/'
+DATA_PATH = 'data/data_stocks.csv'
+SAVE_PATH = 'data/images/'
 
 
 class TimeSeriesHandler:
