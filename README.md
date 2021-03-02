@@ -6,6 +6,24 @@ This project is an implementation of the approach described by Sim et al. 2019 (
 
 ## Table of contents
 [1. Problem description](#problem-description)
+[2. Approach](#approach)
+[3. Dataset](#dataset)
+[4. Data Processing](#data-processing)
+[5. Technical indicators](#technical-indicators)
+[6. Usage](#usage)
+
+- [TimeSeriesConvNet](#timeseriesconvnet)
+  * [Problem description](#problem-description)
+  * [Approach](#approach)
+  * [Dataset](#dataset)
+  * [Data processing](#data-processing)
+    + [Technical indicators](#technical-indicators)
+- [Usage](#usage)
+    + [Setup](#setup)
+      - [Installation](#installation)
+      - [Image generation](#image-generation)
+      - [Run the model](#run-the-model)
+  * [Example](#example)
 
 ## Problem description
 Stock market prediction is a very complex task. The price of a stock is influenced by many factors starting from the actual fundamental underlying characteristics of a company to stock market volatility or even news reports. 
@@ -21,7 +39,6 @@ Time series data were converted to image data (64x64x3) by selecting 30 minute w
 
 
 ## Dataset
-
 Dataset of S&P 500 minute prices can be found at https://www.kesci.com/home/dataset/5bbdc2513631bc00109c29a4/files. 
 
 ## Data processing
