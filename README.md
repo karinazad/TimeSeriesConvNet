@@ -5,13 +5,6 @@ Project for CS496 Advanced Deep Learning class (Northwestern University 2021 Win
 This project is an implementation of the approach described by Sim et al. 2019 (https://www.hindawi.com/journals/complexity/2019/4324878/#data-availability). The authors use convolutional neural networks to predict stock market prices.
 
 ## Table of contents
-[1. Problem description](#problem-description)
-[2. Approach](#approach)
-[3. Dataset](#dataset)
-[4. Data Processing](#data-processing)
-[5. Technical indicators](#technical-indicators)
-[6. Usage](#usage)
-
 - [TimeSeriesConvNet](#timeseriesconvnet)
   * [Problem description](#problem-description)
   * [Approach](#approach)
