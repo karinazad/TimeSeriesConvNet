@@ -1,12 +1,10 @@
 import sys
 import os
-
 import numpy as np
 import tensorflow.keras as keras
 from tensorflow.keras import layers
 import tensorflow as tf
 import matplotlib.pyplot as plt
-
 from tensorflow.keras.optimizers import SGD
 
 
