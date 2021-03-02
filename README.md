@@ -78,7 +78,7 @@ This script will also save targets (price going up or down) for each image in a 
 
 To run the script from the root folder:
 
-    export PYTHONPATH="${PYTHONPATH} 
+    export PYTHONPATH="${PYTHONPATH}<absolute path to the folder>"
     
 #### Run the model
 
