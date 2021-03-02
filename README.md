@@ -53,22 +53,25 @@ The necessary packages can be installed by running the following command in the 
 
     pip install -r requirements.txt
     
+To add the path of the scripts: 
 
+    export PYTHONPATH="${PYTHONPATH}:<absolute path to the folder>"
+    
 #### Image generation
 
 After downloading the dataset from  https://www.kesci.com/home/dataset/5bbdc2513631bc00109c29a4/files, upload it to the project folder. 
 To generate images from the raw data run the following script from the src folder. You can specify the datapath where your data is stored and the number of samples to generate.
 
-    generate_images.py --samples 1100 --data-path <path_to_your_dataset>
+    src/main/generate_images.py --samples 1100 --data-path <path_to_your_dataset>
     
-This script will also save targets (price going up or down) for each image in a separate folder (default is ../../data/images and ../../data/targets). 
+This script will also save targets (price going up or down) for each image in a separate folder (default is data/images and data/targets). 
     
 #### Run the model
 
 To train and evaluate the model (CNN, ANN, or SVM) on the generated images, run the following script from the src/experiments folder:
 Note: right now, only CNN is supported.
 
-    experiments.py --model CNN --show-example True
+    src/main/experiments.py --model CNN --show-example True
     
     
 ## Example
