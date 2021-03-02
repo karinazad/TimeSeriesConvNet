@@ -77,7 +77,7 @@ To generate images from the raw data run the following script from the root fold
 
     src/main/generate_images.py --samples 1100 --data-path <path_to_your_dataset>
     
-This script will also save targets (price going up or down) for each image in a separate folder (default is ../../data/images and ../../data/targets). 
+This script will also save targets (price going up or down) for each image in a separate folder (default is data/images and data/targets). 
 
     
 #### Run the model
