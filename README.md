@@ -90,5 +90,5 @@ Note: right now, only CNN is supported.
     
 ## Example
 
-Note that the image is blurry since it's size is 64x64.
+Note that the image is blurry since it's size is 64x64 .
 ![alt text](https://github.com/karinazad/TimeSeriesConvNet/blob/main/results/predictions/CNN-100epochs.svg)
