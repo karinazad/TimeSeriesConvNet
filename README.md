@@ -1,6 +1,6 @@
 # TimeSeriesConvNet
 Convolutional neural network for analysis of time series converted to images. Applied for stock price predictions. 
-Project for CS496 Advanced Deep Learning class (Northwestern University 2021 Winter).
+Project for CS496 Advanced Deep Learning class (Northwestern University 2021 Winter). 
 
 This project is an implementation of the approach described by Sim et al. 2019 (https://www.hindawi.com/journals/complexity/2019/4324878/#data-availability). The authors use convolutional neural networks to predict stock market prices.
 
