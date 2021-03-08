@@ -91,9 +91,9 @@ Note: right now, only CNN is supported.
 ## Example
 
 Examples of input images with closing price, SMA and EMA:
-![alt text](https://raw.githubusercontent.com/karinazad/TimeSeriesConvNet/main/CNN2.png)
+![alt text](https://raw.githubusercontent.com/karinazad/TimeSeriesConvNet/main/CNN2.png | width=100)
 
 Input images with 5 input variables: closing price, SMA, EMA, ROC, MACD:
-![alt text](https://raw.githubusercontent.com/karinazad/TimeSeriesConvNet/main/CNN3.png)
+![alt text](https://raw.githubusercontent.com/karinazad/TimeSeriesConvNet/main/CNN3.png | width=100)
 
 
