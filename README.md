@@ -35,6 +35,8 @@ To overcome the problem of feedforward nets and the support vector machines, the
 
 CNNs are based on the convolution operation which enables recognition of similar patterns along the whole image and thus is more suitable for complex pattern identification is stock prices. A convolution operation is an elementwise matrix multiplication operation, where one of the matrices is the image and the other is the filter or kernel that turns the image into something else.
 
+![alt text](https://www.hindawi.com/journals/complexity/2019/4324878/fig6/)
+
 
 ## Dataset and Data Processing
 ### Dataset
