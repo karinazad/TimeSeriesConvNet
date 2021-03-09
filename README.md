@@ -37,21 +37,7 @@ CNNs are based on the convolution operation which enables recognition of similar
 
 ![alt text](https://raw.githubusercontent.com/karinazad/TimeSeriesConvNet/main/cnn.png)
 
-
-## Dataset and Data Processing
-### Dataset
-Dataset of S&P 500 minute prices can be found at https://www.kesci.com/home/dataset/5bbdc2513631bc00109c29a4/files. 
-
-![alt text](https://github.com/karinazad/TimeSeriesConvNet/blob/main/sp500.png)
-
-### Data Processing
-To get the time series data into images, we have to perform data processing. The dataset used in the paper which is available at this website consists of rows of minute data for the each individual stocks in S&P 500 as well as the aggregate price under the column S&P 500. This is the one we are interested in. 
-
-The dataset consists of minute data of the S&P 500 index from 2017. The entire dataset covers over 41,000 minutes. To generate the images, we break the whole data into 30 minute long windows and we move in these 30 minutes increments.
-
-33,000 minutes from the dataset are left for the training data (80%), and 8,250 minutes are kept aside for the testing data (20%). After processing, this results in 1,100 input images for training, and the testing data consist of 275 input images. The target is a binary variable that indicates whether the stock price decreased or increased.
-
-
+In our implementation, the CNN is defined as follow.
 ```python3
 class CNN(tf.Keras.Model):
     def __init__(self):
@@ -77,9 +63,34 @@ class CNN(tf.Keras.Model):
 ```
 
 
+## Dataset and Data Processing
+### Dataset
+Dataset of S&P 500 minute prices can be found at https://www.kesci.com/home/dataset/5bbdc2513631bc00109c29a4/files. 
+
+![alt text](https://github.com/karinazad/TimeSeriesConvNet/blob/main/sp500.png)
+
+### Data Processing
+To get the time series data into images, we have to perform data processing. The dataset used in the paper which is available at this website consists of rows of minute data for the each individual stocks in S&P 500 as well as the aggregate price under the column S&P 500. This is the one we are interested in. 
+
+The dataset consists of minute data of the S&P 500 index from 2017. The entire dataset covers over 41,000 minutes. To generate the images, we break the whole data into 30 minute long windows and we move in these 30 minutes increments.
+
+33,000 minutes from the dataset are left for the training data (80%), and 8,250 minutes are kept aside for the testing data (20%). After processing, this results in 1,100 input images for training, and the testing data consist of 275 input images. The target is a binary variable that indicates whether the stock price decreased or increased.
+
+
 ### Technical indicators
 To get the time series data into images, we have to perform data processing. The dataset used in the paper which is available at this website consists of rows of minute data for the each individual stocks in S&P 500 as well as the aggregate price under the column S&P 500. This is the one we are interested in. 
 
+```python3
+N = 20
+
+INDICATOR_FUNCTIONS = {
+    "Closing Price": lambda df: df,
+    "SMA": lambda df: df.rolling(window=N).mean(),
+    "EMA": lambda df: df.ewm(span=N).mean(),
+    "MACD": lambda df: df.ewm(span=12, adjust=False).mean() - df.ewm(span=26, adjust=False).mean(),
+    "ROC": lambda df: df.pct_change(periods=1),
+}
+```
 
 # Implementation
 
@@ -122,10 +133,10 @@ Running this script will also return performance evaluation. For example:
 ## Examples of generated images
 
 Examples of input images with closing price, SMA and EMA:
-<img src="https://raw.githubusercontent.com/karinazad/TimeSeriesConvNet/main/CNN2.png" width="700" >
+<img src="https://raw.githubusercontent.com/karinazad/TimeSeriesConvNet/main/CNN2.png" width="650" >
 
 Input images with 5 input variables: closing price, SMA, EMA, ROC, MACD:
-<img src="https://raw.githubusercontent.com/karinazad/TimeSeriesConvNet/main/CNN3.png" width="700" >
+<img src="https://raw.githubusercontent.com/karinazad/TimeSeriesConvNet/main/CNN3.png" width="650" >
 
 ## Concluding remarks
 This leads us to the future work or points that could be further improved. Provided access to GPU, the model should be run for full 2500 epochs. Since the closing price itself achieved the best accuracy, it would be necessary to compare it on its own as well as to include CNN4 model.
