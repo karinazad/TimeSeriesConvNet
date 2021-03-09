@@ -55,7 +55,7 @@ The dataset consists of minute data of the S&P 500 index from 2017. The entire d
 To get the time series data into images, we have to perform data processing. The dataset used in the paper which is available at this website consists of rows of minute data for the each individual stocks in S&P 500 as well as the aggregate price under the column S&P 500. This is the one we are interested in. 
 
 
-# Usage
+# Implementation
 
 To setup the repo and follow these instructions:
 
@@ -65,12 +65,10 @@ The setup consists of installing all the necessary packages, as well as optional
 work flow.
 
 #### Installation
-To get the code, run:
+To get the code clone the repository. The necessary packages can be installed by running the following commands in the same directory.
 
     git clone https://github.com/karinazad/TimeSeriesConvNet.git
-
-The necessary packages can be installed by running the following command in the same directory:
-
+    cd TimeSeriesConvNet
     pip install -r requirements.txt
     
 To add the script path:
