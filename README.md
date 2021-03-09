@@ -36,10 +36,11 @@ To overcome the problem of feedforward nets and the support vector machines, the
 CNNs are based on the convolution operation which enables recognition of similar patterns along the whole image and thus is more suitable for complex pattern identification is stock prices. A convolution operation is an elementwise matrix multiplication operation, where one of the matrices is the image and the other is the filter or kernel that turns the image into something else.
 
 
-## Dataset
+## Dataset and Data Processing
+### Dataset
 Dataset of S&P 500 minute prices can be found at https://www.kesci.com/home/dataset/5bbdc2513631bc00109c29a4/files. 
 
-## Data processing
+### Data Processing
 To get the time series data into images, we have to perform data processing. The dataset used in the paper which is available at this website consists of rows of minute data for the each individual stocks in S&P 500 as well as the aggregate price under the column S&P 500. This is the one we are interested in. 
 
 The dataset consists of minute data of the S&P 500 index from 2017. The entire dataset covers over 41,000 minutes. To generate the images, we break the whole data into 30 minute long windows and we move in these 30 minutes increments.
