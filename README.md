@@ -1,6 +1,5 @@
 # TimeSeriesConvNet
-Convolutional neural network for analysis of time series converted to images. Applied for stock price predictions. 
-Project for CS496 Advanced Deep Learning class (Northwestern University 2021 Winter). 
+Convolutional neural network for analysis of time series converted to images. Applied for stock price predictions.  Project for CS496 Advanced Deep Learning class (Northwestern University 2021 Winter). 
 
 This project is an implementation of the approach described by Sim et al. 2019 (https://www.hindawi.com/journals/complexity/2019/4324878/#data-availability). The authors use convolutional neural networks to predict stock market prices.
 
@@ -31,8 +30,6 @@ Time series data were converted to image data (64x64x3) by selecting 30 minute w
 ![alt text](https://raw.githubusercontent.com/karinazad/TimeSeriesConvNet/main/approach.png)
 
 ## CNN
-To overcome the problem of feedforward nets and the support vector machines, the authors proposed using convolutional neural networks. 
-
 CNNs are based on the convolution operation which enables recognition of similar patterns along the whole image and thus is more suitable for complex pattern identification is stock prices. A convolution operation is an elementwise matrix multiplication operation, where one of the matrices is the image and the other is the filter or kernel that turns the image into something else.
 
 ![alt text](https://raw.githubusercontent.com/karinazad/TimeSeriesConvNet/main/cnn.png)
@@ -62,24 +59,18 @@ class CNN(tf.Keras.Model):
         return self.dense_3(x)
 ```
 
-
 ## Dataset and Data Processing
 ### Dataset
-Dataset of S&P 500 minute prices can be found at https://www.kesci.com/home/dataset/5bbdc2513631bc00109c29a4/files. 
+Dataset we are using is S&P 500 minute prices. It can be found at https://www.kesci.com/home/dataset/5bbdc2513631bc00109c29a4/files. The dataset consists of rows of minute data for the each individual stocks in S&P 500 as well as the aggregate price under the column S&P 500. This is the one we are interested in. The entire dataset covers over 41,000 minutes
 
 ![alt text](https://github.com/karinazad/TimeSeriesConvNet/blob/main/sp500.png)
 
 ### Data Processing
-To get the time series data into images, we have to perform data processing. The dataset used in the paper which is available at this website consists of rows of minute data for the each individual stocks in S&P 500 as well as the aggregate price under the column S&P 500. This is the one we are interested in. 
-
-The dataset consists of minute data of the S&P 500 index from 2017. The entire dataset covers over 41,000 minutes. To generate the images, we break the whole data into 30 minute long windows and we move in these 30 minutes increments.
-
-33,000 minutes from the dataset are left for the training data (80%), and 8,250 minutes are kept aside for the testing data (20%). After processing, this results in 1,100 input images for training, and the testing data consist of 275 input images. The target is a binary variable that indicates whether the stock price decreased or increased.
+To get the time series data into images, we have to perform data processing. To generate the images, we break the whole data into 30 minute long windows and we move in these 30 minutes increments. 33,000 minutes from the dataset are left for the training data (80%), and 8,250 minutes are kept aside for the testing data (20%). After processing, this results in 1,100 input images for training, and the testing data consist of 275 input images. The target is a binary variable that indicates whether the stock price decreased or increased.
 
 
 ### Technical indicators
-Technical indicators such as simple moving average, exponential moving average, moving average convergence divergence and others are calculated. 
-
+Technical indicators such as simple moving average, exponential moving average, moving average convergence divergence and others are calculated for each of the windows.  
 
 ```python3
 N = 20
@@ -93,9 +84,9 @@ INDICATOR_FUNCTIONS = {
 }
 ```
 
-### Puttin it all together
+### Putting it all together
 
-We can define the main data processing class called ```TimeSeriesHandler``` in ```utils```. This class takes in a data path and other parameters, performs splitting the 
+To go from the provided dataset into final images, we have to 1) split the dataset into windows, 2) calculate technical indicators for each window, and 3) generate images from the curves. We can define the main data processing class called ```TimeSeriesHandler``` in ```utils``` that takes care of this. This class takes in a data path and other parameters, performs splitting of the dataset, and calculates the technical indicators. For details on each function, please click on the code.
 
 ```python3
 class TimeSeriesHandler:
@@ -103,10 +94,28 @@ class TimeSeriesHandler:
                  path: str = DATA_PATH,
                  stock_index: str = 'SP500',
                  time_column_name: str = 'DATE',
-                 nsamples=None,
-                 minute_window=30,
-                 impute_and_scale=True,
+                 nsamples: Optional[int] = None,
+                 minute_window: int = 30,
+                 impute_and_scale: bool = True,
                  ):
+        """
+        Parameters
+        ----------
+        path: str 
+            Path to the csv file with data.
+        stock_index: str
+            Name of the column of interest.
+        time_column_name: str
+            Column with time indication, serves as index to the dataset.
+        nsamples: int
+            Number of samples to be processed.
+        minute_window: int
+            Time window to divide the dataset in.
+        impute_and_scale: bool
+            If true, performs imputation for missing data and standard scaling.
+        """
+
+        self.stock_index = stock_index
 
         self.df = pd.read_csv(path)
         self.df.index = pd.to_datetime(self.df[time_column_name], unit='s')
@@ -120,16 +129,20 @@ class TimeSeriesHandler:
             self.data = self._impute_scale(self.data, scale=False)
 
         self.data_technical = self._calculate_technical_indicators()
-
 ```
 
+To use this class, simply call the function to generate images and indicate the directory where images should be saved.
+
+```python3
+handler = TimeSeriesHandler(path=args.data_path,
+                                nsamples=args.samples)
+
+handler.generate_images(save_dir=os.path.join(args.save_path, "images"))
+```
 
 # Implementation
 
-To setup the repo and follow these instructions:
-
-The setup consists of installing all the necessary packages, as well as optional but recommended steps to stratify the 
-work flow.
+To run the whole project, we first have to  setup the repo and follow these instructions:
 
 ### Installation
 To get the code clone the repository. The necessary packages can be installed by running the following commands in the same directory.
@@ -160,6 +173,13 @@ Note: right now, only CNN is supported.
     src/main/experiments.py --model CNN --show-example True
 
 Running this script will also return performance evaluation. For example:
+
+```
+    Model performance on test data:
+          hit ratio = 0.68
+          specificity = 0.71
+          sensitivity = 0.67
+```
  
     
 ## Examples of generated images
