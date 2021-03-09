@@ -59,12 +59,10 @@ To get the time series data into images, we have to perform data processing. The
 
 To setup the repo and follow these instructions:
 
-### Setup 
-
 The setup consists of installing all the necessary packages, as well as optional but recommended steps to stratify the 
 work flow.
 
-#### Installation
+### Installation
 To get the code clone the repository. The necessary packages can be installed by running the following commands in the same directory.
 
     git clone https://github.com/karinazad/TimeSeriesConvNet.git
@@ -75,7 +73,7 @@ To add the script path:
 
     export PYTHONPATH="${PYTHONPATH}<absolute path to the folder>"
 
-#### Image generation
+### Image generation
 
 After downloading the dataset from  https://www.kesci.com/home/dataset/5bbdc2513631bc00109c29a4/files, upload it to the project folder. 
 To generate images from the raw data run the following script from the root folder. You can specify the datapath where your data is stored and the number of samples to generate.
@@ -85,15 +83,17 @@ To generate images from the raw data run the following script from the root fold
 This script will also save targets (price going up or down) for each image in a separate folder (default is data/images and data/targets). 
 
     
-#### Run the model
+### Run the model
 
 To train and evaluate the model (CNN, ANN, or SVM) on the generated images, run the following script from the root folder:
 Note: right now, only CNN is supported.
 
     src/main/experiments.py --model CNN --show-example True
-   
+
+Running this script will also return performance evaluation. For example:
+ 
     
-## Example of generated images
+## Examples of generated images
 
 Examples of input images with closing price, SMA and EMA:
 <img src="https://raw.githubusercontent.com/karinazad/TimeSeriesConvNet/main/CNN2.png" width="700" >
