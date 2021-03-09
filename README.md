@@ -30,6 +30,11 @@ Time series data were converted to image data (64x64x3) by selecting 30 minute w
 
 ![alt text](https://raw.githubusercontent.com/karinazad/TimeSeriesConvNet/main/approach.png)
 
+## CNN
+To overcome the problem of feedforward nets and the support vector machines, the authors proposed using convolutional neural networks. 
+
+CNNs are based on the convolution operation which enables recognition of similar patterns along the whole image and thus is more suitable for complex pattern identification is stock prices. A convolution operation is an elementwise matrix multiplication operation, where one of the matrices is the image and the other is the filter or kernel that turns the image into something else.
+
 
 ## Dataset
 Dataset of S&P 500 minute prices can be found at https://www.kesci.com/home/dataset/5bbdc2513631bc00109c29a4/files. 
@@ -37,15 +42,12 @@ Dataset of S&P 500 minute prices can be found at https://www.kesci.com/home/data
 ## Data processing
 To get the time series data into images, we have to perform data processing. The dataset used in the paper which is available at this website consists of rows of minute data for the each individual stocks in S&P 500 as well as the aggregate price under the column S&P 500. This is the one we are interested in. 
 
-To generate the images, we break the whole data into 30 minute long windows and we move in these 30 minutes increments.
+The dataset consists of minute data of the S&P 500 index from 2017. The entire dataset covers over 41,000 minutes. To generate the images, we break the whole data into 30 minute long windows and we move in these 30 minutes increments.
+
+33,000 minutes from the dataset are left for the training data (80%), and 8,250 minutes are kept aside for the testing data (20%). After processing, this results in 1,100 input images for training, and the testing data consist of 275 input images. The target is a binary variable that indicates whether the stock price decreased or increased.
 
 ### Technical indicators
 To get the time series data into images, we have to perform data processing. The dataset used in the paper which is available at this website consists of rows of minute data for the each individual stocks in S&P 500 as well as the aggregate price under the column S&P 500. This is the one we are interested in. 
-
-To generate the images, we break the whole data into 30 minute long windows and we move in these 30 minutes increments.
-
-This results 1100 images for training.
-The target is a binary variable that indicates whether the stock price decreased or increased.
 
 
 # Usage
@@ -88,7 +90,7 @@ Note: right now, only CNN is supported.
     src/main/experiments.py --model CNN --show-example True
    
     
-## Example
+## Example of generated images
 
 Examples of input images with closing price, SMA and EMA:
 <img src="https://raw.githubusercontent.com/karinazad/TimeSeriesConvNet/main/CNN2.png" width="700" >
