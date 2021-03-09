@@ -78,7 +78,8 @@ The dataset consists of minute data of the S&P 500 index from 2017. The entire d
 
 
 ### Technical indicators
-To get the time series data into images, we have to perform data processing. The dataset used in the paper which is available at this website consists of rows of minute data for the each individual stocks in S&P 500 as well as the aggregate price under the column S&P 500. This is the one we are interested in. 
+Technical indicators such as simple moving average, exponential moving average, moving average convergence divergence and others are calculated. 
+
 
 ```python3
 N = 20
@@ -91,6 +92,37 @@ INDICATOR_FUNCTIONS = {
     "ROC": lambda df: df.pct_change(periods=1),
 }
 ```
+
+### Puttin it all together
+
+We can define the main data processing class called ```TimeSeriesHandler``` in ```utils```. This class takes in a data path and other parameters, performs splitting the 
+
+```python3
+class TimeSeriesHandler:
+    def __init__(self,
+                 path: str = DATA_PATH,
+                 stock_index: str = 'SP500',
+                 time_column_name: str = 'DATE',
+                 nsamples=None,
+                 minute_window=30,
+                 impute_and_scale=True,
+                 ):
+
+        self.df = pd.read_csv(path)
+        self.df.index = pd.to_datetime(self.df[time_column_name], unit='s')
+        self.df.drop([time_column_name], axis=1, inplace=True)
+        self.df.sort_index(inplace=True)
+
+        self.data = self._split_to_windows(n=nsamples, minute_window=minute_window)
+        self.target = np.array((self.data.iloc[0, :] < self.data.iloc[minute_window - 2, :]), dtype=bool)
+
+        if impute_and_scale:
+            self.data = self._impute_scale(self.data, scale=False)
+
+        self.data_technical = self._calculate_technical_indicators()
+
+```
+
 
 # Implementation
 
