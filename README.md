@@ -51,6 +51,32 @@ The dataset consists of minute data of the S&P 500 index from 2017. The entire d
 
 33,000 minutes from the dataset are left for the training data (80%), and 8,250 minutes are kept aside for the testing data (20%). After processing, this results in 1,100 input images for training, and the testing data consist of 275 input images. The target is a binary variable that indicates whether the stock price decreased or increased.
 
+
+```python3
+class CNN(tf.Keras.Model):
+    def __init__(self):
+        super(CNN, self).__init__()
+        self.conv2d_1 = layers.Conv2D(filters=32, kernel_size=(3, 3), strides=1, padding='same', activation='relu',
+                                     input_shape=(64, 64, 3))
+        self.maxpool_1 = layers.MaxPool2D()
+        self.conv2d_2 = layers.Conv2D(filters=64, kernel_size=(3, 3), padding='same', activation='relu')
+        self.maxpool_2 = layers.MaxPool2D()
+        self.flatten = layers.Flatten()
+        self.dense_1 = layers.Dense(units=512, activation='relu')
+        self.dense_2 = layers.Dense(units=512, activation='relu')
+        self.dense_3 = layers.Dense(units=1, activation='sigmoid')
+
+
+    def call(self, x):
+        x = self.maxpool_1(self.conv2d_1(x))
+        x = self.maxpool_2(self.conv2d_2(x))
+        x = self.flatten(x)
+        x = self.dense_1(x)
+        x = self.dense_2(x)
+        return self.dense_3(x)
+```
+
+
 ### Technical indicators
 To get the time series data into images, we have to perform data processing. The dataset used in the paper which is available at this website consists of rows of minute data for the each individual stocks in S&P 500 as well as the aggregate price under the column S&P 500. This is the one we are interested in. 
 
