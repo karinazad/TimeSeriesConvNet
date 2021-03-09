@@ -182,7 +182,7 @@ Running this script will also return performance evaluation. For example:
 ```
  
  The script also lets us preview training history for training loss and accuracy.
- [! alt text](https://github.com/karinazad/TimeSeriesConvNet/blob/main/CNN-100epochs.png)
+<img src=https://github.com/karinazad/TimeSeriesConvNet/blob/main/CNN-100epochs.png>
     
 ## Examples of generated images
 
