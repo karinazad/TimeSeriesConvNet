@@ -96,4 +96,9 @@ Examples of input images with closing price, SMA and EMA:
 Input images with 5 input variables: closing price, SMA, EMA, ROC, MACD:
 <img src="https://raw.githubusercontent.com/karinazad/TimeSeriesConvNet/main/CNN3.png" width="700" >
 
+## Summary
+This leads us to the future work or points that could be further improved. Provided access to GPU, the model should be run for full 2500 epochs. Since the closing price itself achieved the best accuracy, it would be necessary to compare it on its own as well as to include CNN4 model.
+
+In order to improve on the published results, further hyperparameter tuning and more data inputs could further increase model’s accuracy. Moreover, other factors that move opposite the stock price, such as gold price and interest rate, are considered as input variables for the CNN.
+
 
