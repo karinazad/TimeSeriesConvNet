@@ -3,7 +3,7 @@ Convolutional neural network for analysis of time series converted to images. Ap
 
 This project is an implementation of the approach described by Sim et al. 2019 (https://www.hindawi.com/journals/complexity/2019/4324878/#data-availability). The authors use convolutional neural networks to predict stock market prices.
 
-## Table of contents
+## Table of Content
 - [TimeSeriesConvNet](#timeseriesconvnet)
   * [Problem description](#problem-description)
   * [Approach](#approach)
@@ -13,12 +13,13 @@ This project is an implementation of the approach described by Sim et al. 2019 (
     + [Data Processing](#data-processing)
     + [Technical indicators](#technical-indicators)
     + [Putting it all together](#putting-it-all-together)
+      - [Examples of generated images](#examples-of-generated-images)
 - [Implementation](#implementation)
     + [Installation](#installation)
     + [Image generation](#image-generation)
     + [Run the model](#run-the-model)
-  * [Examples of generated images](#examples-of-generated-images)
   * [Concluding remarks](#concluding-remarks)
+
 
 ## Problem description
 Stock market prediction is a very complex task. The price of a stock is influenced by many factors starting from the actual fundamental underlying characteristics of a company to stock market volatility or even news reports. 
@@ -142,6 +143,16 @@ handler = TimeSeriesHandler(path=args.data_path,
 
 handler.generate_images(save_dir=os.path.join(args.save_path, "images"))
 ```
+#### Examples of generated images
+
+Here is an example of input images with closing price, SMA and EMA:
+<img src="https://raw.githubusercontent.com/karinazad/TimeSeriesConvNet/main/CNN2.png" width="500" >
+
+As you can see, the colors are preserved in the training so that the model can utilize the color scheme to extract useful information about each indicators.
+
+Another example of input images with 5 input variables: closing price, SMA, EMA, ROC, MACD.
+<img src="https://raw.githubusercontent.com/karinazad/TimeSeriesConvNet/main/CNN3.png" width="500" >
+
 
 # Implementation
 
@@ -187,13 +198,6 @@ Running this script will also return performance evaluation. For example:
  The script also lets us preview training history for training loss and accuracy.
 <img src=https://github.com/karinazad/TimeSeriesConvNet/blob/main/CNN-100epochs.png>
     
-## Examples of generated images
-
-Examples of input images with closing price, SMA and EMA:
-<img src="https://raw.githubusercontent.com/karinazad/TimeSeriesConvNet/main/CNN2.png" width="650" >
-
-Input images with 5 input variables: closing price, SMA, EMA, ROC, MACD:
-<img src="https://raw.githubusercontent.com/karinazad/TimeSeriesConvNet/main/CNN3.png" width="650" >
 
 ## Concluding remarks
 This leads us to the future work or points that could be further improved. Provided access to GPU, the model should be run for full 2500 epochs. Since the closing price itself achieved the best accuracy, it would be necessary to compare it on its own as well as to include CNN4 model.
