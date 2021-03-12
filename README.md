@@ -204,4 +204,18 @@ This leads us to the future work or points that could be further improved. Provi
 
 In order to improve on the published results, further hyperparameter tuning and more data inputs could further increase model’s accuracy. Moreover, other factors that move in the opposite direction of the stock price, such as interest rate or gold price, could be included in the analysis.
 
+## References
+
+```
+@article{sim_is_2019,
+	title = {Is {Deep} {Learning} for {Image} {Recognition} {Applicable} to {Stock} {Market} {Prediction}?},
+	volume = {2019},
+	journal = {Complexity},
+	author = {Sim, Hyun Sik and Kim, Hae In and Ahn, Jae Joon},
+	month = feb,
+	year = {2019},
+	note = {Publisher: Hindawi},
+	pages = {e4324878},
+}
+```
 
